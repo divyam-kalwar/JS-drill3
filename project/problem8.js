@@ -2,7 +2,7 @@
 
 function cityCountry(arrayOfObjects){
     const cityAndCountry = {}
-    for(const person of arrayOfObjects){
+    arrayOfObjects.reduce((acc, person) => {
         if(!cityAndCountry.city) {
             cityAndCountry.city = [];
         }
@@ -13,7 +13,7 @@ function cityCountry(arrayOfObjects){
 
         cityAndCountry.city.push(person.city);
         cityAndCountry.country.push(person.country);    
-    }
+    }, []);
     return cityAndCountry;
 }
 
