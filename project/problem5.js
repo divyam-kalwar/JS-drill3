@@ -1,11 +1,13 @@
 //    Implement a loop to access and print the ages of all individuals in the dataset.
 
 function individuals(arrayOfObjects){
-    let ages = [];
-    for(const person of arrayOfObjects){
-        ages.push(person.age);
+    if (arrayOfObjects.length === 0) {
+        return [];
     }
-    return ages;
+    return arrayOfObjects.reduce((acc, person) => {
+        acc.push(person.age);
+        return acc;
+    }, []);
 }
 
 export default individuals;
