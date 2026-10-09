@@ -1,11 +1,13 @@
 //    Create a function to retrieve and display the first hobby of each individual in the dataset.
 
 function hobby(arrayOfObjects){
-    let hobbies = [];
-    for(const person of arrayOfObjects){
-        hobbies.push(person.hobbies[0]);
+    if (arrayOfObjects.length === 0) {
+        return [];
     }
-    return hobbies;
+    return arrayOfObjects.reduce((acc, person) => {
+        acc.push(person.hobbies[0]);
+        return acc;
+    }, []);
 }
 
 export default hobby;
